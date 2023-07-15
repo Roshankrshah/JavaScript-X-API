@@ -41,13 +41,14 @@ body {
 }
 
 .search-box button {
-    padding: 15px 0;
+    padding: 10px 0;
     width: 25%;
     background-color: #ae9cff;
     border: none;
     outline: none;
     color: #ffffff;
     border-radius: 5px;
+    font-size: 20px;
 }
 
 .result {
@@ -96,4 +97,19 @@ body {
 .error {
     margin-top: 80px;
     text-align: center;
+}
+
+.filter-btn {
+    background: transparent;
+    font-size: 1px;
+    text-transform: capitalize;
+    margin: 0 0.5rem;
+    letter-spacing: 1px;
+    padding: 0.375rem 0.75rem;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background-color: #ae9cff;
+    color: white;
 }

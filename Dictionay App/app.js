@@ -8,7 +8,19 @@ btn.addEventListener('click',(e)=>{
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inpWord}`)
     .then((response) => response.json())
     .then((data)=>{
-        
+        //console.log(data[0]);
+
+        const partofSpeechs = [];
+
+        for(let i=0;i<data[0].meanings.length;i++){
+            partofSpeechs.push(i);
+        }
+        const partofSpeechBtn = partofSpeechs.map((speech)=>{
+            return `<button type='button' class="filter-btn"> ${data[0].meanings[speech].partOfSpeech}
+            </button>`
+        }).join("");
+        console.log(partofSpeechBtn);
+        result.innerHTML = partofSpeechBtn;
     })
     .catch(()=>{
         console.log("fattu");
