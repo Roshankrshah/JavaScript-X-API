@@ -1,6 +1,7 @@
 const result = document.getElementById('result');
 const sound = document.getElementById('sound');
 const btn = document.getElementById('search-btn');
+const btnContainer = document.getElementById('btn-container');
 
 btn.addEventListener('click',(e)=>{
     e.preventDefault();
@@ -20,7 +21,7 @@ btn.addEventListener('click',(e)=>{
             </button>`
         }).join("");
         console.log(partofSpeechBtn);
-        result.innerHTML = partofSpeechBtn;
+        btnContainer.innerHTML = partofSpeechBtn;
     })
     .catch(()=>{
         console.log("fattu");
