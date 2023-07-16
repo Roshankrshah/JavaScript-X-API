@@ -14,6 +14,24 @@
             <input type="text" id="search-box" placeholder="Enter Word here..." />
             <button id="submit-btn">Search</button>
         </div>
+        <div class="quantity-container">
+            <label for="quantity">Quantity (between 1 and 30):</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="30" placeholder="5" value="5">
+
+            <label for="rating">Rated:</label>
+            <select id="rate" name="rate">
+                <option value="g">g</option>
+                <option value="pg">pg</option>
+                <option value="pg-13">pg-13</option>
+                <option value="r">r</option>
+            </select>
+
+            <label for="lang">Language:</label>
+            <select id="lang" name="lang">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+            </select>
+        </div>
         <div class="loader"></div>
         <div class="wrapper"></div>
     </div>

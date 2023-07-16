@@ -1,16 +1,17 @@
 const submitBtn = document.getElementById('submit-btn');
 
 let generateGif = () => {
-    console.log("Fuck you baby disha")
 
     let loader = document.querySelector('.loader');
     loader.style.display = "block";
     document.querySelector('.wrapper').style.display = 'none';
 
     let q = document.getElementById('search-box').value;
-    let gifCount = 10;
-    console.log(q);
-    let finalUrl = `https://api.giphy.com/v1/gifs/search?api_key=3zJoxXPwk67dhxthrrqGI579oEcz1yAK&q=${q}&limit=${gifCount}`;
+    let gifCount = document.getElementById('quantity').value;
+    let rated = document.getElementById('rate').value;
+    let lang = document.getElementById('lang').value;
+    
+    let finalUrl = `https://api.giphy.com/v1/gifs/search?api_key=3zJoxXPwk67dhxthrrqGI579oEcz1yAK&q=${q}&limit=${gifCount}&rating=${rated}&lang=${lang}`;
     document.querySelector(".wrapper").innerHTML = "";
 
     fetch(finalUrl).then((resp) => resp.json())
@@ -41,7 +42,6 @@ let generateGif = () => {
                 copyBtn.onclick = () => {
                     let copyLink = `https://media4.giphy.com/media/${gif.id}/giphy.mp4`;
 
-                    
                     navigator.clipboard
                     .writeText(copyLink)
                     .then(() => {

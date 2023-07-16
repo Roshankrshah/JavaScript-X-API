@@ -35,6 +35,13 @@ button {
     font-weight: 400;
 }
 
+.quantity-container {
+    color: #13fc97;
+    margin: 1em auto;
+    padding: 0.5em;
+    margin: auto 5.5em;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
