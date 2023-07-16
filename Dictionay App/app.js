@@ -26,6 +26,7 @@ function createContent(data, idx) {
 btn.addEventListener('click', (e) => {
     e.preventDefault();
     let inpWord = document.getElementById('inp-word').value;
+
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inpWord}`)
         .then((response) => response.json())
         .then((data) => {
@@ -46,23 +47,37 @@ btn.addEventListener('click', (e) => {
             btnContainer.innerHTML = partofSpeechBtn;
         
             const filterBtns = btnContainer.querySelectorAll(".filter-btn");
-            console.log(filterBtns)
+            
+            let displayDet = createContent(data, 0);
+            result.innerHTML = displayDet;
+
+            let soundIdx;
+            for(let i=0;i<data[0].phonetics.length;i++){
+                if(data[0].phonetics[i].audio){
+                    soundIdx = i;
+                    break;
+                }
+            }
+            sound.setAttribute("src", `${data[0].phonetics[soundIdx].audio}`);
 
             filterBtns.forEach((btn) => {
                 btn.addEventListener("click", (e) => {
                     const idx = parseInt(e.currentTarget.dataset.id);
-                    console.log(idx);
-                    let displayDet = createContent(data, idx);
+                    displayDet = createContent(data, idx);
                     result.innerHTML = displayDet;
-                    sound.setAttribute("src", `${data[0].phonetics[idx].audio}`);
+                    sound.setAttribute("src", `${data[0].phonetics[soundIdx].audio}`);
                 })
             })  
         })
         .catch(() => {
-            console.log("fattu");
+            btnContainer.innerHTML = "";
+            if(inpWord.length == 0){
+                result.innerHTML = `<h3 class="error">The input field cannot be empty</h3>`;
+            }
+            else{
+                result.innerHTML = `<h3 class="error">Couldn't Find The Word</h3>`;
+            }
         })
-
-    console.log(inpWord);
 })
 
 function playSound() {
