@@ -3,6 +3,33 @@ const sound = document.getElementById('sound');
 const btn = document.getElementById('search-btn');
 const btnContainer = document.getElementById('btn-container');
 
+function syno(synList){
+    if(synList.length == 0)
+        return "";
+    
+    let synAns = "Synonyms: ";
+    let i = 0;
+    for(;i<synList.length-1;i++){
+        synAns += synList[i] + "/ ";
+    }
+    synAns += synList[i];
+    return synAns;
+}
+
+function anto(antoList){
+    if(antoList.length == 0)
+        return "";
+    
+    let antoAns = "Antonyms: ";
+    
+    let i = 0;
+    for(;i<antoList.length-1;i++){
+        antoAns += antoList[i] + "/ ";
+    }
+    antoAns += antoList[i];
+    return antoAns;
+}
+
 function createContent(data, idx) {
     return `
     <div class="word">
@@ -17,6 +44,12 @@ function createContent(data, idx) {
         </div>
         <p class="word-meaning">
             ${data[0].meanings[idx].definitions[0].definition}
+        </p>
+        <p class="word-synonym">
+            ${syno(data[0].meanings[idx].synonyms)}
+        </p>
+        <p class="word-antonym">
+            ${anto(data[0].meanings[idx].antonyms)}
         </p>
         <p class="word-example">
             ${data[0].meanings[idx].definitions[0].example || ""}

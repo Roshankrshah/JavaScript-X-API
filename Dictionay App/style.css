@@ -86,6 +86,22 @@ body {
     color: #575a7b;
 }
 
+.word-synonym {
+    color: #575a7b;
+    font-style: italic;
+    border-left: 5px solid #ae9cff;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.word-antonym {
+    color: #575a7b;
+    font-style: italic;
+    border-left: 5px solid #ae9cff;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
 .word-example {
     color: #575a7b;
     font-style: italic;
