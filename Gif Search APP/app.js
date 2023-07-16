@@ -48,14 +48,12 @@ let generateGif = () => {
                         alert("GIF copied to clipboard");
                     })
                     .catch(() => {
-                        //if navigator is not supported
                         alert("Error");
                     });
                 }
                 
                 container.append(copyBtn);
                 document.querySelector(".wrapper").append(container);
-                
             })
         })
 }

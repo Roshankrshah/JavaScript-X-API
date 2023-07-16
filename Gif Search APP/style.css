@@ -36,6 +36,7 @@ button {
 }
 
 .quantity-container {
+    align-items: center;
     color: #13fc97;
     margin: 1em auto;
     padding: 0.5em;
