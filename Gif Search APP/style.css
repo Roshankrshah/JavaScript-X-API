@@ -81,6 +81,12 @@ button {
     animation: spin 3s infinite;
 }
 
+.error {
+    margin-top: 80px;
+    text-align: center;
+    color: #e61111;
+}
+
 @keyframes spin {
     100% {
         transform: translate(-50%, -50%) rotate(360deg);

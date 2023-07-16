@@ -6,7 +6,8 @@ let generateGif = () => {
     loader.style.display = "block";
     document.querySelector('.wrapper').style.display = 'none';
 
-    let q = document.getElementById('search-box').value;
+    let q = document.getElementById('search-box').value.trim();
+    
     let gifCount = document.getElementById('quantity').value;
     let rated = document.getElementById('rate').value;
     let lang = document.getElementById('lang').value;
@@ -17,7 +18,10 @@ let generateGif = () => {
     fetch(finalUrl).then((resp) => resp.json())
         .then((info) => {
             let gifsData = info.data;
-            //console.log(gifsData)
+
+            if(gifsData.length == 0){
+                throw "Not Found";
+            }
 
             gifsData.forEach((gif) => {
                 let container = document.createElement('div');
@@ -34,7 +38,7 @@ let generateGif = () => {
                         document.querySelector('.wrapper').style.display = "grid";
                     }
                 }
-
+                
                 container.append(iframe);
                 let copyBtn = document.createElement("button");
                 copyBtn.innerText = "Copy Link";
@@ -51,10 +55,16 @@ let generateGif = () => {
                         alert("Error");
                     });
                 }
-                
                 container.append(copyBtn);
                 document.querySelector(".wrapper").append(container);
+                
             })
+        }).catch(()=>{
+            if(q.length == 0){
+                loader.style.display = "none";
+                document.querySelector('.wrapper').style.display = "block";
+                document.getElementsByClassName('wrapper')[0].innerHTML = `<h3 class="error">The input field cannot be empty</h3>`;
+            }
         })
 }
 submitBtn.addEventListener('click', generateGif);
