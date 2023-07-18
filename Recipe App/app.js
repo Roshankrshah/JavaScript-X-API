@@ -2,13 +2,15 @@ const searchBox = document.querySelector('.searchbox');
 const searchBtn = document.querySelector('.searchbtn');
 const recipeContainer = document.querySelector('.recipe-container');
 
-const fetchRecipe = async ()=>{
+const fetchRecipe = async (query)=>{
+    recipeContainer.innerHTML = "<h3>loading</h3>";
 
-    let response = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=cake');
+    let response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
     let recipes = await response.json();
 
     recipeContainer.innerHTML = "";
     recipes.meals.forEach((recipe)=>{
+
         const recipeDiv = document.createElement('div');
         recipeDiv.classList.add('recipe');
         recipeDiv.innerHTML = `
@@ -25,5 +27,6 @@ const fetchRecipe = async ()=>{
 
 searchBtn.addEventListener('click',()=>{
     console.log("hi");
-    fetchRecipe();
+    let query = searchBox.value.trim();
+    fetchRecipe(query);
 })
