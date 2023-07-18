@@ -51,7 +51,8 @@ button[type = 'submit']{
     transition: background-color 0.2s ease-in-out;
 }
 
-button[type = 'submit']:hover{
+button[type = 'submit']:hover,
+.recipe button:hover{
     background-color: blanchedalmond;
 }
 
@@ -94,6 +95,18 @@ button[type = 'submit']:hover{
 
 .recipe span{
     font-weight: 600;
+}
+
+.recipe button{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 18px auto;
+    background-color: red;
+    color: aliceblue;
 }
 
 @media screen and (max-width:600px) {

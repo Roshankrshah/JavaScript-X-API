@@ -19,6 +19,10 @@ const fetchRecipe = async (query)=>{
         <p><span>${recipe.strArea}</span> Dish</p>
         <p>Belongs to <span>${recipe.strCategory}</span> Category</p>`
 
+        const button = document.createElement('button');
+        button.textContent = "View Recipe";
+        recipeDiv.appendChild(button);
+        
         recipeContainer.appendChild(recipeDiv);
     })
 
