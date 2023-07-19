@@ -76,6 +76,11 @@ button[type = 'submit']:hover,
     box-shadow: 0 5px 10px rgba(78,73,73,0.1), -5px -5px 10px rgba(34,34,34,0.5);
     cursor: pointer;
     max-width: 350px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.recipe:hover{
+    transform: scale(1.02);
 }
 
 .recipe img{
@@ -174,6 +179,18 @@ button[type = 'submit']:hover,
     background: blueviolet;
     border-radius: 16px;
     --webkit-border-radius: 16px;
+}
+
+body::-webkit-scrollbar{
+    width :16px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: rgb(90, 23, 153);
+}
+
+body::-webkit-scrollbar-track{
+    background: rgb(117, 9, 218);
 }
 
 @media screen and (max-width:600px) {
