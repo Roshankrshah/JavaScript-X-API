@@ -46,7 +46,6 @@ const recipeListDetails = (recipes) => {
         recipeContainer.appendChild(recipeDiv);
 
         button.addEventListener('click', () => {
-            console.log("Mia khalifa")
             url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipe.idMeal}`;
             fetch(url).then((resp) => resp.json())
                 .then((recipeItem) => {
@@ -125,7 +124,7 @@ const openRecipeModal = (recipe) => {
 searchBtn.addEventListener('click', () => {
     let query = searchBox.value.trim();
     if (!query) {
-        recipeContainer.innerHTML = "<h1>Provie Any Recipe Name...</h1>";
+        recipeContainer.innerHTML = "<h1>Provide Any Recipe Name...</h1>";
         return;
     }
     fetchRecipe(query);
@@ -133,7 +132,12 @@ searchBtn.addEventListener('click', () => {
 
 btnContainer.addEventListener('click', (e) => {
     const id = e.target.dataset.id;
-    console.log(id);
+    if(id){
+        btns.forEach((btn)=>{
+            btn.classList.remove("active");
+        })
+        e.target.classList.add("active");
+    }
     if (id == 'name') {
         url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
         searchBy = 'name';
