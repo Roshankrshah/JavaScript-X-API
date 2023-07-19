@@ -71,7 +71,10 @@ const openRecipeModal = (recipe) => {
         <div class="recipeinstructions">
             <h3>Instructions</h3>
             <p>${recipe.strInstructions}</p>
-        </div>`;
+        </div>
+        <div class="icon">
+            <a href="${recipe.strYoutube}"><i class="fa-brands fa-youtube"></i></a>
+        <div>`;
     recipeDetailsContent.parentElement.style.display = 'block';
 }
 

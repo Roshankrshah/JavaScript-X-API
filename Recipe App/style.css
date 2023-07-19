@@ -181,6 +181,14 @@ button[type = 'submit']:hover,
     --webkit-border-radius: 16px;
 }
 
+.icon{
+    text-align: center;
+}
+a {
+    font-size: xxx-large;
+    color: red;
+}
+
 body::-webkit-scrollbar{
     width :16px;
 }
