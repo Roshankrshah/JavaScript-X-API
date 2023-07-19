@@ -1,6 +1,8 @@
 const searchBox = document.querySelector('.searchbox');
 const searchBtn = document.querySelector('.searchbtn');
 const recipeContainer = document.querySelector('.recipe-container');
+const recipeDetailsContent = document.querySelector('.recipe-details-content');
+const recipeCloseBtn = document.querySelector('.recipe-close-btn');
 
 const fetchRecipe = async (query)=>{
     recipeContainer.innerHTML = "<h3>loading</h3>";
@@ -22,12 +24,50 @@ const fetchRecipe = async (query)=>{
         const button = document.createElement('button');
         button.textContent = "View Recipe";
         recipeDiv.appendChild(button);
+
+        button.addEventListener('click',()=>{
+            openRecipeModal(recipe)
+        })
         
         recipeContainer.appendChild(recipeDiv);
     })
+};
 
+recipeCloseBtn.addEventListener('click',()=>{
+    recipeDetailsContent.parentElement.style.display = 'none';
+})
 
+const fectchIngredients = (recipe)=>{
+    console.log("recipe")
+    let ingredientList = '';
+    for(let i=1;i<=20;i++){
+        const ingredient = recipe[`strIngredient${i}`];
+        console.log(ingredient)
+        if(ingredient){
+            const measure = recipe[`strIngredient${i}`];
+            ingredientList += `<li>${measure}${ingredient}</li>`;
+            console.log(ingredientList)
+        }
+        else{
+            break;
+        }
+    }
+    console.log(ingredientList)
+    return ingredientList;
 }
+const openRecipeModal = (recipe)=>{
+    recipeDetailsContent.innerHTML = `
+        <h2 class="recipename">${recipe.strMeal}</h2>
+        <h3>Ingredients:</h3>
+        <ul class="ingredientlist">${fectchIngredients(recipe)}</ul>
+        <div class="recipeinstructions">
+            <h3>Instructions</h3>
+            <p>${recipe.strInstructions}</p>
+        </div>`;
+    recipeDetailsContent.parentElement.style.display = 'block';
+}
+
+
 
 searchBtn.addEventListener('click',()=>{
     console.log("hi");
