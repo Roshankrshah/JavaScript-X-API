@@ -5,7 +5,13 @@ const recipeDetailsContent = document.querySelector('.recipe-details-content');
 const recipeCloseBtn = document.querySelector('.recipe-close-btn');
 
 const fetchRecipe = async (query) => {
-    recipeContainer.innerHTML = "<h3>loading</h3>";
+    recipeContainer.innerHTML = `
+        <div id="content" class="row">
+            <div class="d-flex justify-content-center">
+                <img width="50" src="https://samherbert.net/svg-loaders/svg-loaders/oval.svg" style="filter: invert(1)"
+                alt="Loading...">
+            </div>
+        </div>`;
 
     try {
         let response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
@@ -34,7 +40,7 @@ const fetchRecipe = async (query) => {
         })
     }
     catch{
-        recipeContainer.innerHTML = "<h3>Error in fetching Recipe...</h3>";
+        recipeContainer.innerHTML = "<h1>Error in fetching Recipe...</h1>";
     }
     
 };
@@ -44,7 +50,6 @@ recipeCloseBtn.addEventListener('click', () => {
 })
 
 const fectchIngredients = (recipe) => {
-    console.log("recipe")
     let ingredientList = '';
     for (let i = 1; i <= 20; i++) {
         const ingredient = recipe[`strIngredient${i}`];
@@ -73,10 +78,9 @@ const openRecipeModal = (recipe) => {
 
 
 searchBtn.addEventListener('click', () => {
-    console.log("hi");
     let query = searchBox.value.trim();
     if(!query){
-        recipeContainer.innerHTML = "<h3>Type any Recipe...</h3>";
+        recipeContainer.innerHTML = "<h1>Provie Any Recipe Name...</h1>";
         return;
     }
     fetchRecipe(query);
