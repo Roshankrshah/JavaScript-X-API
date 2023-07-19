@@ -37,9 +37,14 @@ header nav h1{
     margin-right: 10px;
 }
 
+.searchbox::placeholder{
+    font-size: 12px;
+    font-style: italic;
+}
+
 .searchbox, button[type = 'submit'] {
     border: none;
-    font-size: 18px;
+    font-size: 20px;
     padding: 10px;
     border-radius: 4px;
 }
