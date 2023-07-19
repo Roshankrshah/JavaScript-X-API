@@ -17,10 +17,10 @@ const fetchRecipe = async (query) => {
             const recipeDiv = document.createElement('div');
             recipeDiv.classList.add('recipe');
             recipeDiv.innerHTML = `
-        <img src="${recipe.strMealThumb}">
-        <h3>${recipe.strMeal}</h3>
-        <p><span>${recipe.strArea}</span> Dish</p>
-        <p>Belongs to <span>${recipe.strCategory}</span> Category</p>`
+                <img src="${recipe.strMealThumb}">
+                <h3>${recipe.strMeal}</h3>
+                <p><span>${recipe.strArea}</span> Dish</p>
+                <p>Belongs to <span>${recipe.strCategory}</span> Category</p>`
 
             const button = document.createElement('button');
             button.textContent = "View Recipe";
@@ -48,17 +48,14 @@ const fectchIngredients = (recipe) => {
     let ingredientList = '';
     for (let i = 1; i <= 20; i++) {
         const ingredient = recipe[`strIngredient${i}`];
-        console.log(ingredient)
         if (ingredient) {
-            const measure = recipe[`strIngredient${i}`];
-            ingredientList += `<li>${measure}${ingredient}</li>`;
-            console.log(ingredientList)
+            const measure = recipe[`strMeasure${i}`];
+            ingredientList += `<li>${measure} ${ingredient}</li>`;
         }
         else {
             break;
         }
     }
-    console.log(ingredientList)
     return ingredientList;
 }
 const openRecipeModal = (recipe) => {

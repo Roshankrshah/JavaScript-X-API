@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Recipe APP</title>
 </head>
@@ -12,11 +13,14 @@
     <header>
         <nav>
             <h1>Recipe APP</h1>
-            <div class="btn-container">
-                <button class="tab-btn active" data-id="history">history</button>
-                <button class="tab-btn" data-id="vision">vision</button>
-                <button class="tab-btn" data-id="goals">goals</button>
-            </div>
+            <!--
+
+                <div class="btn-container">
+                    <button class="tab-btn active" data-id="history">history</button>
+                    <button class="tab-btn" data-id="vision">vision</button>
+                    <button class="tab-btn" data-id="goals">goals</button>
+                </div>
+            -->
             <div class="search">
                 <input type="text" placeholder="Search.." class="searchbox">
                 <button type="submit" class="searchbtn">Search</button>
@@ -27,7 +31,7 @@
         <section>
             <div class="recipe-container">Search for Favourite Recipe</div>
             <div class="recipe-details">
-                <button type="button" class="recipe-close-btn">close</button>
+                <button type="button" class="recipe-close-btn"><i class="fas fa-times"></i></button>
                 <div class="recipe-details-content"></div>
             </div>
         </section>

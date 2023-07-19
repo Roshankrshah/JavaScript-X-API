@@ -6,12 +6,12 @@
 }
 
 body{
-    background-color: black;
-    color: antiquewhite;
+    background-color: #eed6c2;
+    color: #654321;
 }
 
 header nav{
-    background-color: burlywood;
+    background-color: #d2945e;
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -46,14 +46,14 @@ header nav h1{
 
 button[type = 'submit']{
     background-color: red;
-    color: whitesmoke;
+    color: aliceblue;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
 }
 
 button[type = 'submit']:hover,
 .recipe button:hover, .recipe-close-btn:hover{
-    background-color: blanchedalmond;
+    background-color: rgb(244, 94, 94);
 }
 
 .recipe-container{
@@ -94,7 +94,7 @@ button[type = 'submit']:hover,
 
 .recipe p{
     font-size: 20px;
-    color: cadetblue;
+    color: #16d5bc;
     margin: 5px 0;
 }
 
@@ -121,7 +121,7 @@ button[type = 'submit']:hover,
     left: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
-    background-color:rgb(1, 35, 24);
+    background-color:#ddaf86;
     border-radius: 12px;
     width: 40%;
     height: 60%;
@@ -158,7 +158,7 @@ button[type = 'submit']:hover,
     padding: 8px;
     border-radius: 4px;
     background-color: red;
-    color: whitesmoke;
+    color: aliceblue;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
     position: absolute;
@@ -176,8 +176,8 @@ button[type = 'submit']:hover,
 }
 
 .recipe-details::-webkit-scrollbar-thumb{
-    background: blueviolet;
-    border-radius: 16px;
+    background: #654321;
+    border-radius: 12px;
     --webkit-border-radius: 16px;
 }
 
@@ -186,11 +186,11 @@ body::-webkit-scrollbar{
 }
 
 body::-webkit-scrollbar-thumb{
-    background: rgb(90, 23, 153);
+    background: #4b4b4b;
 }
 
 body::-webkit-scrollbar-track{
-    background: rgb(117, 9, 218);
+    background: #a6a6a6;
 }
 
 @media screen and (max-width:600px) {
