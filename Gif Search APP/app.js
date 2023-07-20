@@ -12,7 +12,7 @@ let generateGif = () => {
     let rated = document.getElementById('rate').value;
     let lang = document.getElementById('lang').value;
     
-    let finalUrl = `https://api.giphy.com/v1/gifs/search?api_key=3zJoxXPwk67dhxthrrqGI579oEcz1yAK&q=${q}&limit=${gifCount}&rating=${rated}&lang=${lang}`;
+    let finalUrl = `https://api.giphy.com/v1/gifs/search?api_key={api_key}&q=${q}&limit=${gifCount}&rating=${rated}&lang=${lang}`;
     document.querySelector(".wrapper").innerHTML = "";
 
     fetch(finalUrl).then((resp) => resp.json())
