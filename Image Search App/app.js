@@ -4,7 +4,7 @@ const searchResults = document.querySelector('.result-container');
 const showMoreBtn = document.querySelector('.show-more-btn');
 const searchBtn = document.querySelector('.show-more-btn');
 
-const accessKey = "DKIZnX2ZmwYykmKkAoDfJXQbO2r4_aJxfD3ypjZ0iRQ";
+const accessKey = "{your_Access_Key}";
 
 let page = 1;
 
