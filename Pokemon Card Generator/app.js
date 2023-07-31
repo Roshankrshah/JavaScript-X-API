@@ -15,36 +15,78 @@ const typeColor = {
     psychic: "#a29bfe",
     rock: "#2d3436",
     water: "#0190FF",
-  };
+};
 
-  const url = `https://pokeapi.co/api/v2/pokemon/`;
+const url = `https://pokeapi.co/api/v2/pokemon/`;
 
-  const card = document.getElementById('card');
-  const btn = document.querySelector('.btn');
+const card = document.getElementById('card');
+const btn = document.querySelector('.btn');
 
-  let getPokeData = ()=>{
-    let id = Math.floor(Math.random()%200)+1;
+let getPokeData = () => {
+    let id = Math.floor(Math.random() * 200) + 1;
 
     const finalUrl = url + id;
+    console.log(id);
 
-    fetch(finalUrl).then((resp)=>resp.json())
-    .then((data)=>{
-        generateCard(data);
-    })
-  };
+    fetch(finalUrl).then((resp) => resp.json())
+        .then((data) => {
+            generateCard(data);
+        })
+};
 
-  let generateCard = (data)=>{
+let generateCard = (data) => {
     console.log(data);
     const hp = data.stats[0].base_stat;
     const imgSrc = data.sprites.other.dream_world.front_default;
-    const pokeName = data.name[1].toUpperCase() + data.name.slice(1);
+    const pokeName = data.name.toUpperCase();
     console.log("hi")
-    const statAttack =data.stats[1].base_stat;
+    const statAttack = data.stats[1].base_stat;
     const statDefense = data.stats[2].base_stat;
     const statSpeed = data.stats[5].base_stat;
 
-    console.log(hp,pokeName,statAttack);
-  }
+    console.log(hp, pokeName, statAttack);
+    const themeColor = typeColor[data.types[0].type.name];
+    console.log(themeColor);
 
-  btn.addEventListener('click',getPokeData);
-  window.addEventListener('DOMContentLoaded',getPokeData);
+    card.innerHTML = `
+    <p class="hp">
+        <span>HP </span>${hp}
+    </p>
+    <img src="${imgSrc}" alt="">
+    <h2 class="poke-name">${pokeName}</h2>
+    <div class="types"></div>
+    <div class="stats">
+        <div>
+            <h3>${statAttack}</h3>
+            <p>Attack</p>
+        </div>
+        <div>
+            <h3>${statDefense}</h3>
+            <p>Defense</p>
+        </div>
+        <div>
+            <h3>${statSpeed}</h3>
+            <p>Speed</p>
+        </div>
+    </div>`;
+    appendTypes(data.types);
+    styleCard(themeColor);
+}
+
+let appendTypes = (types) => {
+    types.forEach((item) => {
+        let span = document.createElement('span');
+        span.textContent = item.type.name;
+        document.querySelector('.types').appendChild(span);
+    });
+};
+
+let styleCard = (color) => {
+    card.style.background = `radial-gradient(circle at 50% 0%, ${color} 36%, #ffffff 36%)`;
+    card.querySelectorAll(".types span").forEach((typeColor) => {
+        typeColor.style.backgroundColor = color;
+    })
+}
+
+btn.addEventListener('click', getPokeData);
+window.addEventListener('DOMContentLoaded', getPokeData);
