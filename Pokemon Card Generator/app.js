@@ -23,10 +23,9 @@ const card = document.getElementById('card');
 const btn = document.querySelector('.btn');
 
 let getPokeData = () => {
-    let id = Math.floor(Math.random() * 200) + 1;
+    let id = Math.floor(Math.random() * 300) + 1;
 
     const finalUrl = url + id;
-    console.log(id);
 
     fetch(finalUrl).then((resp) => resp.json())
         .then((data) => {
@@ -35,18 +34,14 @@ let getPokeData = () => {
 };
 
 let generateCard = (data) => {
-    console.log(data);
     const hp = data.stats[0].base_stat;
     const imgSrc = data.sprites.other.dream_world.front_default;
     const pokeName = data.name.toUpperCase();
-    console.log("hi")
     const statAttack = data.stats[1].base_stat;
     const statDefense = data.stats[2].base_stat;
     const statSpeed = data.stats[5].base_stat;
 
-    console.log(hp, pokeName, statAttack);
     const themeColor = typeColor[data.types[0].type.name];
-    console.log(themeColor);
 
     card.innerHTML = `
     <p class="hp">
