@@ -1,3 +1,5 @@
+import Access_Key from "./config.js";
+
 let result = document.querySelector('.result');
 let searchBtn = document.querySelector('.search-btn');
 let cityRef = document.getElementById('city');
@@ -9,7 +11,7 @@ const getWeather = () => {
         result.innerHTML = `<h3 class="msg">Please enter a city name</h3>`
     }
     else {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=f283e7a1e3a828ab328d61c9fca05aad&units=metric`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${Access_Key}`;
 
         fetch(url)
             .then((resp) => resp.json())
