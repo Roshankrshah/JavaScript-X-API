@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz APP</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="btn-container">
+        <div class="default-set">Default Quiz</div>
+        <div class="customize-set">Customize Quiz</div>
+    </div>
+    <div class="info-container">
+        <div class="info-title">Rules of this Quiz</div>
+        <div class="info-list">
+            <div class="info">1. You will have only <span>10 seconds</span> for each question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You will get rewards on the basis of your correct answers.</div>
+        </div>
+        <div class="info-footer">
+            <button class="start">Start Quiz</button>
+        </div>
+    </div>
+    <div class="quiz-box">
+        <header>
+            <div class="title"></div>
+            <div class="timer">
+                <div class="time-left-txt">Time left</div>
+                <div class="time-left">10</div>
+            </div>
+            <div class="time-line"></div>
+        </header>
+        <section>
+            <div class="ques"></div>
+            <div class="options"></div>
+        </section>
+        <footer>
+            <div class="total-ques"></div>
+            <button class="next-btn">Next</button>
+        </footer>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
