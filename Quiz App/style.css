@@ -136,12 +136,12 @@ body {
     box-shadow: 0 3px 5px 1px rgba(0,0,0,0.1);
 }
 
-.quiz-container header .title{
+.title{
     font-size: 20px;
     font-weight: 600;
 }
 
-.quiz-container header .timer{
+.timer{
     color: blue;
     background-color: #1bb7b7;
     border: 1px solid black;
@@ -186,17 +186,19 @@ section{
     background-color: #fff;
 }
 
-section .ques{
+.ques{
     font-size: 25px;
     font-weight: 600;
 }
 
-section .options{
+.options{
     padding: 20px 0;
     display: block;
 }
 
-section .option{
+
+
+.option{
     background-color: aliceblue;
     border: 1px solid skyblue;
     border-radius: 5px;
@@ -210,30 +212,33 @@ section .option{
     justify-content: space-between;
 }
 
-section .options .option:last-child{
+.option:last-child{
     margin-bottom: 0;
 }
-
-section .option:hover{
+/*
+.option:hover{
     color: blue;
     background-color: white;
     border: 1px solid skyblue;
+}*/
 
+.correct{
+    background-color: lightgreen;
+    color: green;
+    border: 1px solid green;
 }
 
-.option .correct{
-    color: lightgreen;
-    border: 1px solid;
-}
-
-.option .incorrect{
+.incorrect{
+    background-color: rgb(244, 166, 166);
     color: red;
-    border: 1px solid;
+    border: 1px solid red;
 }
 
-.option .disalbed{
+.disabled{
     pointer-events: none;
 }
+
+
 
 .option .icon{
     height: 26px;
@@ -269,13 +274,9 @@ footer{
     border-top: 1px solid lightgrey;
 }
 
-footer .total-ques span p{
-    font-weight: 500;
+.total-ques p span{
+    font-weight: 600;
     padding: 0 5px;
-}
-
-footer .total-ques span p:first-child{
-    padding-left: 0px;
 }
 
 footer button{
@@ -296,3 +297,16 @@ footer button{
 footer button:hover{
     background-color: lightblue;
 }
+
+.result-container{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 25px 30px;
+    width: 450px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    transform: translate(-50%,-50%) scale(0.9);
+    transition: all 0.3s ease;
+}
+
