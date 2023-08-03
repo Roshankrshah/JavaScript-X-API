@@ -1,6 +1,6 @@
 import fetchques from "./data.js";
 import display from "./displayQues.js";
-import {setTime,stopTimer} from "./setTime.js";
+import { setTime, stopTimer } from "./setTime.js";
 import { noOfQuestions, quesCategory, quesDifficulty } from "./customParameters.js";
 
 const defaultBtn = document.querySelector('.default-set');
@@ -17,6 +17,9 @@ const footer = document.querySelector('.total-ques');
 const timer = document.querySelector('.time-left');
 const continueBtn = document.querySelector('.continue-btn');
 
+let quesIndex = 0, category = 9, difficulty = 'easy', correctAnswer = 0, totalQuestions = 10;
+let data;
+
 defaultBtn.addEventListener('click', () => {
     btnContainer.style.display = 'none';
     infoContainer.classList.add('active');
@@ -27,29 +30,23 @@ customizeBtn.addEventListener('click', () => {
     customContainer.classList.add('active');
 })
 
-continueBtn.addEventListener('click',()=>{
+continueBtn.addEventListener('click', () => {
     totalQuestions = noOfQuestions;
     category = quesCategory;
     difficulty = quesDifficulty;
-    console.log(totalQuestions, category,difficulty);
     customContainer.style.display = 'none';
     infoContainer.classList.add('active');
 })
 
-
-let quesIndex = 0;
-let category = 9;
-let difficulty = 'easy';
-let data;
-let correctAnswer = 0;
-let time = 10;
-let totalQuestions = 10;
-
-const init = async () => {
-    data = await fetchques(totalQuestions, category, difficulty);
+const setUI = () =>{
     setTime();
     display(data.results[quesIndex]);
     displayFooter();
+}
+
+const init = async () => {
+    data = await fetchques(totalQuestions, category, difficulty);
+    setUI();
 }
 
 const displayResult = () => {
@@ -66,11 +63,8 @@ nextBtn.addEventListener('click', () => {
     timer.textContent = '10';
     optionsContainer.classList.remove('disabled');
     if (quesIndex < totalQuestions) {
-        setTime();
-        display(data.results[quesIndex]);
-        displayFooter();
-        
-        if (quesIndex === totalQuestions-1) {
+        setUI();
+        if (quesIndex === totalQuestions - 1) {
             nextBtn.textContent = 'Show Result';
         }
     }
@@ -88,7 +82,6 @@ const checkAnswer = (answer) => {
 }
 
 optionsContainer.addEventListener('click', (e) => {
-    console.log(e.target.textContent);
     const option = document.querySelectorAll('.option');
 
     if (e.target.classList.contains('option')) {
