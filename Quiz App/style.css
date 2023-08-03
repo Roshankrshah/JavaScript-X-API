@@ -39,30 +39,39 @@ body {
 
 .info-container,
 .quiz-container,
-.result-container {
-    position:absolute;
+.result-container,
+.custom-container {
+    position: absolute;
     display: none;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2),
-                0 6px 20px 0 rgba(0,0,0,0.19);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .active {
     display: block;
-    transform: translate(-50%,-50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
 }
 
-.info-container{
+.info-container {
     width: 540px;
     background: #fff;
     border-radius: 5px;
-    transform: translate(-50%,-50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.9);
     transition: all 0.3s ease;
 }
 
-.info-container .info-title{
+.custom-container {
+    width: 600px;
+    background: #fff;
+    border-radius: 5px;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: all 0.3s ease;
+}
+
+.info-container .info-title {
     height: 60px;
     width: 100%;
     border-bottom: 1px solid lightgray;
@@ -74,21 +83,68 @@ body {
     font-weight: 600;
 }
 
-.info-container .info-list{
+.custom-container .custom-title {
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    border-radius: 5px 5px 0 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.custom-container input[type="range"] {
+    width: 200px;
+    margin: 0 10px;
+}
+
+#questionCount {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+select {
+    width: 200px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+label[for] {
+    cursor: pointer;
+}
+
+.info-container .info-list {
     padding: 15px 30px;
 }
 
-.info-container .info-list .info{
+.custom-container .custom-list {
+    padding: 15px 30px;
+}
+
+.info-container .info-list .info {
     margin: 5px 0;
     font-size: 17px;
 }
 
-.info-list span{
+.custom-container .custom-list .custom {
+    margin: 20px 0;
+    font-size: 17px;
+}
+
+.info-list span {
     font-weight: 600;
     color: red;
 }
 
-.info-footer{
+.info-footer {
     height: 60px;
     display: flex;
     align-items: center;
@@ -97,7 +153,16 @@ body {
     border-top: 1px solid lightgray;
 }
 
-.start{
+.custom-footer {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 30px;
+    border-top: 1px solid lightgray;
+}
+
+.start {
     margin: 0 5px;
     height: 40px;
     width: 100px;
@@ -111,19 +176,37 @@ body {
     transition: all 0.3s ease;
 }
 
-.start:hover{
+.start:hover {
     background-color: #c73434;
 }
 
-.quiz-container{
-    width: 550px;
-    background-color: #fff;
+.continue-btn {
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background-color: #6e1515;
     border-radius: 5px;
-    transform: translate(-50%,-50%) scale(0.9);
     transition: all 0.3s ease;
 }
 
-.quiz-container header{
+.continue-btn:hover {
+    background-color: #c73434;
+}
+
+.quiz-container {
+    width: 550px;
+    background-color: #fff;
+    border-radius: 5px;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: all 0.3s ease;
+}
+
+.quiz-container header {
     position: relative;
     z-index: 2;
     height: 70px;
@@ -133,15 +216,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 3px 5px 1px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.1);
 }
 
-.title{
+.title {
     font-size: 20px;
     font-weight: 600;
 }
 
-.timer{
+.timer {
     color: blue;
     background-color: #1bb7b7;
     border: 1px solid black;
@@ -154,13 +237,13 @@ body {
     width: 145px;
 }
 
-.time-left-txt{
+.time-left-txt {
     font-weight: 400;
     font-size: 17px;
     user-select: none;
 }
 
-.time-left{
+.time-left {
     font-size: 18px;
     font-weight: 500;
     height: 30px;
@@ -173,7 +256,7 @@ body {
     user-select: none;
 }
 
-.time-line{
+.time-line {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -181,24 +264,24 @@ body {
     background-color: blue;
 }
 
-section{
+section {
     padding: 25px 30px 20px 30px;
     background-color: #fff;
 }
 
-.ques{
+.ques {
     font-size: 25px;
     font-weight: 600;
 }
 
-.options{
+.options {
     padding: 20px 0;
     display: block;
 }
 
 
 
-.option{
+.option {
     background-color: aliceblue;
     border: 1px solid skyblue;
     border-radius: 5px;
@@ -212,9 +295,10 @@ section{
     justify-content: space-between;
 }
 
-.option:last-child{
+.option:last-child {
     margin-bottom: 0;
 }
+
 /*
 .option:hover{
     color: blue;
@@ -222,25 +306,25 @@ section{
     border: 1px solid skyblue;
 }*/
 
-.correct{
+.correct {
     background-color: lightgreen;
     color: green;
     border: 1px solid green;
 }
 
-.incorrect{
+.incorrect {
     background-color: rgb(244, 166, 166);
     color: red;
     border: 1px solid red;
 }
 
-.disabled{
+.disabled {
     pointer-events: none;
 }
 
 
 
-.option .icon{
+.option .icon {
     height: 26px;
     width: 26px;
     border: 2px solid transparent;
@@ -252,20 +336,20 @@ section{
     line-height: 24px;
 }
 
-.option .icon .tick{
+.option .icon .tick {
     color: green;
     border-color: green;
     background-color: green;
 }
 
-.option .icon .cross{
+.option .icon .cross {
     color: red;
     border-color: red;
     background-color: red;
 }
 
 
-footer{
+footer {
     height: 50px;
     padding: 0 30px;
     display: flex;
@@ -274,12 +358,12 @@ footer{
     border-top: 1px solid lightgrey;
 }
 
-.total-ques p span{
+.total-ques p span {
     font-weight: 600;
     padding: 0 5px;
 }
 
-footer button{
+footer button {
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
@@ -294,11 +378,11 @@ footer button{
     transition: all 0.3s ease;
 }
 
-footer button:hover{
+footer button:hover {
     background-color: lightblue;
 }
 
-.result-container{
+.result-container {
     background-color: #fff;
     border-radius: 5px;
     padding: 25px 30px;
@@ -306,7 +390,6 @@ footer button:hover{
     text-align: center;
     font-size: 18px;
     font-weight: 600;
-    transform: translate(-50%,-50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.9);
     transition: all 0.3s ease;
 }
-
