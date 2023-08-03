@@ -24,6 +24,43 @@
             <button type="button" class="start">Start Quiz</button>
         </div>
     </div>
+    <div class="custom-container">
+        <div class="custom-title">Customize Questions</div>
+        <div class="custom-list">
+            <div class="custom">
+                <label for="questionSlider">Number of Questions:</label>
+                <input type="range" id="questionSlider" min="1" max="50" value="5">
+                <span id="questionCount">5</span>
+            </div>
+            <div class="custom">
+                <label for="questionSelect">Questions Category:</label>
+                <select id="questionSelect">
+                    <option value="9">General Knowledge</option>
+                    <option value="26">Celebrities</option>
+                    <option value="29">Entertainment: Comics</option>
+                    <option value="11">Entertainment: Film</option>
+                    <option value="20">Mythology</option>
+                    <option value="18">Science: Computers</option>
+                    <option value="30">Science: Gadgets</option>
+                    <option value="17">Science & Nature</option>
+                    <option value="21">Sports</option>
+                    <option value="28">Vehicles</option>
+                </select>
+            </div>
+            <div class="custom">
+                <label>Difficulty of Questions:</label>
+                <input type="radio" name="questionOption" value="easy" id="option1">
+                <label for="option1">Easy</label>
+                <input type="radio" name="questionOption" value="medium" id="option2">
+                <label for="option2">Medium</label>
+                <input type="radio" name="questionOption" value="hard" id="option3">
+                <label for="option3">Hard</label>
+            </div>
+        </div>
+        <div class="custom-footer">
+            <button type="button" class="continue-btn">Continue</button>
+        </div>
+    </div>
     <div class="quiz-container">
         <header>
             <div class="title"></div>
