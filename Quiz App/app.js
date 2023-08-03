@@ -34,7 +34,7 @@ continueBtn.addEventListener('click', () => {
     totalQuestions = noOfQuestions;
     category = quesCategory;
     difficulty = quesDifficulty;
-    customContainer.style.display = 'none';
+    customContainer.classList.remove('active');
     infoContainer.classList.add('active');
 })
 
@@ -105,3 +105,4 @@ startBtn.addEventListener('click', () => {
     quizContainer.style.display = 'block';
     init();
 })
+

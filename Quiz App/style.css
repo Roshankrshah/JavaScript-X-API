@@ -225,8 +225,8 @@ label[for] {
 }
 
 .timer {
-    color: blue;
-    background-color: #1bb7b7;
+    color: #ec0d0d;
+    background-color: #19d6d675;
     border: 1px solid black;
     height: 45px;
     padding: 0 8px;
