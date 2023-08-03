@@ -7,7 +7,8 @@ const display = (data)=>{
     quesTxt.textContent = data.question;
 
     let options = data.incorrect_answers;
-    options.push(data.correct_answer);
+    let index = Math.floor(Math.random()*4);
+    options.splice(index,0,data.correct_answer);
 
     const newoptions = options.map((option)=>{
         return `
