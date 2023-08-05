@@ -72,6 +72,14 @@ input:focus {
     max-width: 400px;
 }
 
+span a{
+    color: white;
+    text-decoration: none;
+}
+
+span a:hover{
+    color:#bbb
+}
 .user-info ul li {
     display: flex;
     align-items: center;
