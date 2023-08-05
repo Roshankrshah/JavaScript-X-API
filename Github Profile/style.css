@@ -101,3 +101,7 @@ span a:hover{
     margin-bottom: 0.5rem;
     text-decoration: none;
 }
+
+.error{
+    color: red;
+}

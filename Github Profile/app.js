@@ -5,19 +5,29 @@ const search = document.querySelector(".input-value");
 const API_URL = "https://api.github.com/users/";
 
 async function getUser(username) {
-    const resp = await fetch(API_URL + username);
-    const data = await resp.json();
+    try {
+        const resp = await fetch(API_URL + username);
+        const data = await resp.json();
 
-    createUserCard(data);
-
-    getRepos(username);
+        if (data.message) {
+            container.innerHTML = '<div class="error">Your search not matched any github user</div>';
+            return;
+        }
+        createUserCard(data);
+        getRepos(username);
+    } catch (error) {
+        container.innerText = '<div class="error">Not Found, Please Try again later</div>';
+    }
 }
 
 async function getRepos(username) {
-    const resp = await fetch(API_URL + username + "/repos");
-    const data = await resp.json();
-
-    addReposToCard(data);
+    try {
+        const resp = await fetch(API_URL + username + "/repos");
+        const data = await resp.json();
+        addReposToCard(data);
+    } catch (error) {
+        container.innerText = '<div class="error">Not Found, Please Try again later</div>';
+    }
 }
 
 function addReposToCard(repos) {
