@@ -1,0 +1,72 @@
+const container = document.querySelector(".container");
+const form = document.querySelector(".input-form");
+const search = document.querySelector(".input-value");
+
+const API_URL = "https://api.github.com/users/";
+
+async function getUser(username) {
+    const resp = await fetch(API_URL + username);
+    const data = await resp.json();
+
+    createUserCard(data);
+
+    getRepos(username);
+}
+
+async function getRepos(username) {
+    const resp = await fetch(API_URL + username + "/repos");
+    const data = await resp.json();
+
+    addReposToCard(data);
+}
+
+function addReposToCard(repos) {
+    const reposEl = document.getElementById("repos");
+
+    repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        .slice(0, 15)
+        .forEach((repo) => {
+            const repoEl = document.createElement("a");
+            repoEl.classList.add("repo");
+
+            repoEl.href = repo.html_url;
+            repoEl.target = "_blank";
+            repoEl.innerText = repo.name;
+
+            reposEl.appendChild(repoEl);
+        });
+}
+
+function createUserCard(user) {
+    const cardHTML = `
+        <div class="card">
+            <div>
+                <img class="avatar" src="${user.avatar_url}" alt="${user.name}" />
+            </div>
+            <div class="user-info">
+                <h2>${user.name}</h2>
+                <p>${user.bio}</p>
+
+                <ul class="info">
+                    <li>${user.followers}<strong>Followers</strong></li>
+                    <li>${user.following}<strong>Following</strong></li>
+                    <li>${user.public_repos}<strong>Repos</strong></li>
+                </ul>
+
+                <div id="repos"></div>
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = cardHTML;
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const user = search.value;
+
+    if (user) {
+        getUser(user);
+        search.value = "";
+    }
+});
