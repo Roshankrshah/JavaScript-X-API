@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
-    <link rel="icon" type="image/x-icon" href="./favicon/favicon-32x32.png"/>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="icon" type="image/x-icon" href="./favicon/favicon-32x32.png" />
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
     <div class="container">
         <div class="qr-header">
-            <h1>Generate QR Code</h1>
-            <input type="text" placeholder="Type text or url" id="qr-text"/>
+            <h1 class="orange">Generate</h1>
+            <h1 class="white">QR</h1>
+            <h1 class="green">Code</h1>
+
+            <input type="text" placeholder="Type text or url" id="qr-text" />
             <div>
                 <label for="sizes">Select Size:</label>
                 <select id="sizes">
@@ -24,16 +29,17 @@
         </div>
         <div class="qr-body"></div>
         <div class="qr-footer">
-            <div class="btn-container">
-                <button class="row1-btn">Generate QR Code</button>
-                <div class="row2-btns">
-                  <button class="row2-btn">Download</button>
-                  <button class="row2-btn">Copy</button>
-                </div>
-              </div>
+            <button class="row1-btn">Generate QR Code</button>
+            <div class="row2-btns">
+                <a download="QR_Code.png">
+                    <button class="row2-btn">Download</button>
+                </a>
+                <button class="row2-btn">Copy</button>
+            </div>
         </div>
     </div>
     <script src="app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </body>
+
 </html>

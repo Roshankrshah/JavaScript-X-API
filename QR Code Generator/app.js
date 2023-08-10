@@ -50,7 +50,7 @@ downloadBtn.addEventListener('click', () => {
 
     if (img !== null) {
         imgArr = img.getAttribute('src');
-        downloadBtn.setAttribute('href', imgArr);
+        downloadBtn.parentElement.setAttribute('href', imgArr);
     } else {
         alert('No QR Code generated!!!');
     }
